@@ -1,4 +1,4 @@
-def get_first_right(start, changes_right):
+def get_first_right(domino, start, changes_right):
     for i in range(start, len(domino)):
         if domino[i] == '/':
             pass
@@ -10,7 +10,7 @@ def get_first_right(start, changes_right):
     return i
 
 
-def get_first_left(start, changes_left):
+def get_first_left(domino, start, changes_left):
     bckw_domino = domino[::-1]
     for i in range(start, len(domino)):
         if bckw_domino[i] == '\\':
@@ -24,17 +24,18 @@ def get_first_left(start, changes_left):
 
 
 def iteration(domino):
+    len_domino = len(domino) - 1
     changes_right = list()
     changes_left = list()
     bckw_domino = domino[::-1]
 
     for i in range(len(domino)):
         if domino[i] == '/':
-            get_first_right(i, changes_right)
+            get_first_right(domino, i, changes_right)
 
     for i in range(len(domino)):
         if bckw_domino[i] == '\\':
-            get_first_left(i, changes_left)
+            get_first_left(domino, i, changes_left)
     changes_left = [len_domino - x for x in changes_left]
     intersection = list(set(changes_left) & set(changes_right))
     changes_left = [x for x in changes_left if x not in intersection]
@@ -46,11 +47,5 @@ def iteration(domino):
     for i in changes_right:
         list_domino[i] = "/"
 
-    print(changes_left)
-    print(changes_right)
     return "".join(list_domino)
 
-
-domino = "||//||\\||/\\|"
-len_domino = len(domino) - 1
-print(iteration(domino))
