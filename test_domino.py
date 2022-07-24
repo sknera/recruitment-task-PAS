@@ -30,7 +30,7 @@ class Test(TestCase):
 
     def test_leaning2(self):
         domino = "///\\\\\\"
-        assert iteration(domino) == domino
+        assert iteration(domino) == domino 
 
     def test_middle(self):
         # middle block should not fall to either side
