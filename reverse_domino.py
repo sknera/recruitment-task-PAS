@@ -8,7 +8,7 @@ def get_first_right(domino, start, changes_right):
         elif domino[i] == '|':
             changes_right.append(i - 1)
             break
-    return i
+
 
 
 def get_first_left(domino, start, changes_left):
@@ -22,7 +22,7 @@ def get_first_left(domino, start, changes_left):
         elif bckw_domino[i] == '|':
             changes_left.append(i - 1)
             break
-    return i
+
 
 
 def iteration(domino):
