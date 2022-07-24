@@ -10,7 +10,6 @@ def get_first_right(domino, start, changes_right):
             break
 
 
-
 def get_first_left(domino, start, changes_left):
     bckw_domino = domino[::-1]
     for i in range(start, len(domino)):
@@ -22,7 +21,6 @@ def get_first_left(domino, start, changes_left):
         elif bckw_domino[i] == '|':
             changes_left.append(i - 1)
             break
-
 
 
 def iteration(domino):

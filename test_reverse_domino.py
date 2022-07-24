@@ -13,7 +13,7 @@ class Test(TestCase):
         assert iteration(domino) == "|||"
 
     def test_example_input(self):
-        domino = "||////\\\\\|////|"
+        domino = "||////\\\\\\|////|"
         assert iteration(iteration(domino)) == "||//||||\\|//|||"
 
     def test_leaning(self):
