@@ -1,7 +1,10 @@
 def get_first_right(domino, start, changes_right):
     for i in range(start, len(domino)):
         if domino[i] == '/':
-            pass
+            if i == len(domino)-1:
+                changes_right.append(i)
+            else:
+                pass
         elif domino[i] == '\\':
             changes_right.append(i)
             break
@@ -14,7 +17,10 @@ def get_first_left(domino, start, changes_left):
     bckw_domino = domino[::-1]
     for i in range(start, len(domino)):
         if bckw_domino[i] == '\\':
-            pass
+            if i == len(domino)-1:
+                changes_left.append(i)
+            else:
+                pass
         elif bckw_domino[i] == '/':
             changes_left.append(i)
             break

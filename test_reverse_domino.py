@@ -25,18 +25,25 @@ class Test(TestCase):
         assert iteration(domino) == "//||\\\\"
 
     def test_middle(self):
-        # middle block should not fall to either side
         domino = "/|\\"
         assert iteration(domino) == "|||"
 
     def test_middle2(self):
-        # middle block should not fall to either side, even when there is more blocks pushing it
         domino = "/////////|\\"
         assert iteration(domino) == "////////|||"
-
 
     def test_ten_iterations(self):
         domino = "///////////////|||||"
         for i in range(10):
             domino = iteration(domino)
         assert domino == "/////|||||||||||||||"
+
+    def test_only_right(self):
+        domino = "///"
+        assert iteration(domino) == "//|"
+
+    def test_only_lef(self):
+        domino = "\\\\\\"
+        assert iteration(domino) == "|\\\\"
+
+
